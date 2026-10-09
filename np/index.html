@@ -1,21 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne" data-theme="dark" data-variant="emerald">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>DSS0-Siraha</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+  <title>दलित समाज सेवा संघ (DSSO) - सिराहा | Voice for the Voiceless</title>
+  <meta name="description" content="दलित समाज सेवा संघ (DSSO) सिराहामा सन् २००० मा स्थापित एक गैर-सरकारी संस्था हो जसले दलित अधिकार, गरिबी न्यूनीकरण, युवा सशक्तिकरण र सामाजिक न्यायका लागि निरन्तर कार्य गर्दै आएको छ।">
+  <meta name="keywords" content="DSSO Siraha, Dalit Samaj Sewa Sangh, Dalit Rights Nepal, Madhesi Dalit Rights, Social Justice Siraha">
+
+  <!-- Immediate Theme Initializer (Zero-FOUC for 5 Variants, Dark Default) -->
+  <script>
+    (function() {
+      var variant = localStorage.getItem('dsso-variant') || 'emerald';
+      document.documentElement.setAttribute('data-theme', 'dark');
+      document.documentElement.setAttribute('data-variant', variant);
+      localStorage.setItem('dsso-theme', 'dark');
+    })();
+  </script>
 
   <!-- Favicons -->
   <link href="../assets/img/logo-title.png" rel="icon">
-  <!-- <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,600;1,700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,80 +35,111 @@
 
   <!-- Main CSS File -->
   <link href="../assets/css/main.css" rel="stylesheet">
-
-
 </head>
 
 <body class="index-page">
 
-  <header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+  <!-- Compact Production Header (56px) -->
+  <header id="header" class="header fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">    
-        <img src="../assets/img/logo.png" alt="">
-        <!-- <h1 class="sitename">DSSO-Siraha</h1> -->
+      <a href="index.html" class="logo d-flex align-items-center">    
+        <img src="../assets/img/logo.png" alt="DSSO Logo">
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>        
-          <li class="dropdown"><a href="#about">हाम्रो बारेमा</a></li>
-          <li class="dropdown"><a href="#donors">सहयोगी संस्थाहरू</a> </li>
-          
+          <li><a href="#about" class="active">हाम्रो बारेमा</a></li>
+          <li><a href="#core">मूल सिद्धान्तहरू</a></li>
+          <li><a href="#donors">साझेदारहरू</a></li>
           <li><a href="#project">गतिविधिहरू</a></li>
-          <li><a href="#team">हाम्रो कार्यदल</a></li>
-          <!-- <li class="dropdown"><a href="#"><span>Blog</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-            <ul>
-              <li><a href="#">Dropdown 1</a></li>        
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
-            </ul>
-          </li> -->
-          <li><a href="#contact">सहकार्य साझेदारहरू</a></li>
+          <li><a href="#team">कार्यदल</a></li>
           <li><a href="#contact">सम्पर्क</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
+      <div class="header-actions">
+        <!-- 5-Variant Color Switcher Dropdown -->
+        <div class="variant-dropdown">
+          <button class="variant-btn" type="button" aria-label="रङ परिवर्तन गर्नुहोस्" title="रङ छनौट गर्नुहोस्">
+            <span class="variant-dot"></span>
+            <i class="bi bi-palette2"></i>
+          </button>
+          <div class="variant-menu">
+            <button type="button" class="variant-option" data-set-variant="emerald" data-variant-name="Emerald & Mint">
+              <span class="dot" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%);"></span> १. पन्ना र पुदिना (Emerald & Mint)
+            </button>
+            <button type="button" class="variant-option" data-set-variant="sapphire" data-variant-name="Ocean Sapphire">
+              <span class="dot" style="background: linear-gradient(135deg, #1d4ed8 0%, #06b6d4 100%);"></span> २. महासागरीय निलो (Ocean Sapphire)
+            </button>
+            <button type="button" class="variant-option" data-set-variant="crimson" data-variant-name="Crimson & Sunset">
+              <span class="dot" style="background: linear-gradient(135deg, #be123c 0%, #f97316 100%);"></span> ३. न्याय र क्रान्ति (Crimson & Sunset)
+            </button>
+            <button type="button" class="variant-option" data-set-variant="amber" data-variant-name="Amber Sunrise">
+              <span class="dot" style="background: linear-gradient(135deg, #b45309 0%, #f59e0b 100%);"></span> ४. सुनौलो प्रभात (Amber Sunrise)
+            </button>
+            <button type="button" class="variant-option" data-set-variant="violet" data-variant-name="Imperial Violet">
+              <span class="dot" style="background: linear-gradient(135deg, #6d28d9 0%, #ec4899 100%);"></span> ५. शाही बैजनी (Imperial Violet)
+            </button>
+          </div>
+        </div>
 
-      <a class="btn-getstarted" href="../index.html">English</a>
+        <!-- Language Button -->
+        <a class="btn-lang" href="../index.html" title="Switch to English">
+          <i class="bi bi-translate"></i>
+          <span>English</span>
+        </a>
+      </div>
 
     </div>
   </header>
 
   <main class="main">
 
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
+    <!-- Compact Hero Section -->
+    <section id="hero" class="hero section">
 
-      <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+      <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="6000">
 
+        <!-- Slide 1 -->
         <div class="carousel-item active">
-          <img src="../assets/assets/img//template/Groovin/hero-carousel/hero-carousel-1.jpg" alt="">
+          <img src="../assets/img/hero/hero-carousel-1.jpg" alt="आवाजविहीनहरूको आवाज सबैका लागि न्याय">
           <div class="carousel-container">
-            <h2>Voice for the Voiceless. Justice for All.</h2>
-            <h4>Empowering Madhesi Dalits. Advancing Justice. Ending Discrimination.</h4>
-           
+            <h2>आवाजविहीनहरूको आवाज, सबैका लागि न्याय</h2>
+            <h4>मधेशी दलितहरूको सशक्तिकरण, न्यायको प्रवर्द्धन, विभेदको अन्त्य।</h4>
+            <div class="hero-btn-group">
+              <a href="#about" class="btn-hero-primary"><i class="bi bi-compass"></i> हाम्रो ध्येय</a>
+              <a href="#contact" class="btn-hero-secondary"><i class="bi bi-chat-dots"></i> सम्पर्क गर्नुहोस्</a>
+            </div>
           </div>
-        </div><!-- End Carousel Item -->
+        </div>
 
+        <!-- Slide 2 -->
         <div class="carousel-item">
-          <img src="../assets/assets/img//template/Groovin/hero-carousel/hero-carousel-2.jpg" alt="">
+          <img src="../assets/img/hero/hero-carousel-2.jpg" alt="विभेदको पर्खाल तोडौं आत्मसम्मान निर्माण गरौं">
           <div class="carousel-container">
-            <h2>Breaking Barriers. Building Dignity.</h2>
-            <h4>Defending Rights. Strengthening Communities.</h4>
-            
+            <h2>विभेदको पर्खाल तोडौं, आत्मसम्मानको निर्माण गरौं</h2>
+            <h4>अधिकारको रक्षा, समुदायको सबलीकरण।</h4>
+            <div class="hero-btn-group">
+              <a href="#project" class="btn-hero-primary"><i class="bi bi-kanban"></i> गतिविधिहरू</a>
+              <a href="#donors" class="btn-hero-secondary"><i class="bi bi-people"></i> साझेदारहरू</a>
+            </div>
           </div>
-        </div><!-- End Carousel Item -->
+        </div>
 
+        <!-- Slide 3 -->
         <div class="carousel-item">
-          <img src="../assets/assets/img//template/Groovin/hero-carousel/hero-carousel-3.jpg" alt="">
+          <img src="../assets/img/hero/hero-carousel-3.jpg" alt="समानता मर्यादा सामाजिक न्याय">
           <div class="carousel-container">
-            <h2>Equality. Dignity. Social Justice.</h2>
-            <h4>Community Strength. Collective Progress.</h4>
-            
+            <h2>समानता, मर्यादा र सामाजिक न्याय</h2>
+            <h4>सामुदायिक एकता र सामूहिक प्रगति।</h4>
+            <div class="hero-btn-group">
+              <a href="#core" class="btn-hero-primary"><i class="bi bi-award"></i> मूल सिद्धान्तहरू</a>
+              <a href="#contact" class="btn-hero-secondary"><i class="bi bi-envelope"></i> सहकार्य गरौं</a>
+            </div>
           </div>
-        </div><!-- End Carousel Item -->
+        </div>
 
         <a class="carousel-control-prev" href="#hero-carousel" role="button" data-bs-slide="prev">
           <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
@@ -115,104 +155,184 @@
 
     </section><!-- /Hero Section -->
 
+    <!-- Compact Stats Strip -->
+    <section class="stats-section">
+      <div class="container" data-aos="fade-up">
+        <div class="stats-card-wrap">
+          <div class="row g-2 justify-content-center">
+
+            <div class="col-lg-3 col-6">
+              <div class="stats-item">
+                <div class="stats-icon"><i class="bi bi-calendar2-check"></i></div>
+                <div class="stats-info">
+                  <h3><span data-purecounter-start="1990" data-purecounter-end="2000" data-purecounter-duration="1" class="purecounter"></span> AD</h3>
+                  <p>स्थापना वर्ष (सिराहा)</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-6">
+              <div class="stats-item">
+                <div class="stats-icon"><i class="bi bi-piggy-bank"></i></div>
+                <div class="stats-info">
+                  <h3><span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>+</h3>
+                  <p>बचत तथा ऋण समूहहरू</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-6">
+              <div class="stats-item">
+                <div class="stats-icon"><i class="bi bi-people"></i></div>
+                <div class="stats-info">
+                  <h3><span data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="purecounter"></span>+</h3>
+                  <p>साझेदार संस्थाहरू</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-6">
+              <div class="stats-item">
+                <div class="stats-icon"><i class="bi bi-award"></i></div>
+                <div class="stats-info">
+                  <h3><span data-purecounter-start="0" data-purecounter-end="10000" data-purecounter-duration="1" class="purecounter"></span>+</h3>
+                  <p>लाभान्वित समुदाय</p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section><!-- /Stats Strip -->
+
     <!-- About Section -->
     <section id="about" class="about section">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>हाम्रो बारेमा</h2>
-        <p class="font-size" align="justify">दलित समाज सेवा संघ (Dalit Society Service Organization – DSSO) एक गैर-सरकारी संस्था हो, जुन विशेष रूपमा पिछडा समुदायद्वारा नेतृत्व गरिएको छ र दलित अधिकार, गरिबी न्यूनीकरण, मानवअधिकार, नेतृत्व विकास, उद्यमशीलता विकास, वकालत, युवा सशक्तिकरण, भूमिसम्बन्धी अधिकार, सामाजिक विकास, न्याय र मर्यादाको सुनिश्चितताका लागि स्थापना गरिएको हो।
-
-यस संस्था २००० ईस्वीमा सिराहा जिल्लाको प्रशासनमा स्थापना गरिएको हो र २००१ ईस्वीमा सामाजिक सेवा परिषदसँग सम्बन्धित भएको छ। DSSO ले समुदाय र देशभरिको सामाजिक भेदभावपूर्ण अभ्यास र दुराचारको विरुद्ध दलित, महिला, जबरजस्ती श्रमिक र किशोर-किशोरीहरूलाई संगठन, सशक्तिकरण र आन्दोलन गर्दै आएको छ।
-
-स्थापना भएको समयदेखि नै DSSO दलित अधिकार, मानव तस्करी, आधुनिक दासत्व र जबरजस्ती श्रमको मुद्दामा काम गर्दै आएको छ। यस संस्थाले सरकारी लाइन एजेन्सीहरू, निर्वाचित प्रतिनिधिहरू, नागरिक समाजका संस्था, मुद्दा आधारित आन्दोलनहरू, ट्रेड युनियनहरू, विभिन्न राजनीतिक दलका सहोदर संगठनहरू, जिम्मेवार निकायहरू र सरोकारवालासँग सुदृढ समन्वय, सहकार्य र नेटवर्किङ, साथै गठबन्धन कायम गरेको छ।</p>
       </div><!-- End Section Title -->
+
+      <!-- About Intro Card -->
+      <div class="container mb-4" data-aos="fade-up">
+        <div class="about-intro-card">
+          <div class="about-card-badge"><i class="bi bi-shield-check"></i> संस्थागत परिचय तथा वैधानिक आधार</div>
+          <p>
+            दलित समाज सेवा संघ (Dalit Society Service Organization – DSSO) सीमान्तकृत तथा वञ्चितीकरणमा परेका समुदायद्वारा नेतृत्व गरिएको एक गैर-सरकारी संस्था हो। यो संस्था विशेष गरी दलित अधिकार, गरिबी न्यूनीकरण, मानवअधिकार, नेतृत्व विकास, उद्यमशीलता प्रवर्द्धन, वकालत, युवा सशक्तिकरण, भू-अधिकार तथा सामाजिक न्याय र आत्मसम्मानको सुनिश्चितताका लागि स्थापित भएको हो। वि.सं. २०५७ (सन् २०००) मा जिल्ला प्रशासन कार्यालय सिराहामा दर्ता भई सन् २००१ मा समाज कल्याण परिषदमा आबद्ध भएको यस संस्थाले जातीय विभेद, मानव बेचबिखन, आधुनिक दासत्व र जबरजस्ती श्रम (हरवा-चरवा) का विरुद्ध निरन्तर जनचेतना तथा पैरवी गर्दै आइरहेको छ। संस्थाले स्थापनाकालदेखि नै सरकारी निकायहरू, जनप्रतिनिधिहरू, नागरिक समाज, सामाजिक आन्दोलनहरू, ट्रेड युनियनहरू तथा सरोकारवालाहरूसँग सशक्त समन्वय, सहकार्य र सञ्जाल निर्माण गरी कार्य गर्दै आएको छ।
+          </p>
+        </div>
+      </div>
 
       <div class="container" data-aos="fade-up">
 
-        <div class="row g-4 g-lg-5" data-aos="fade-up" data-aos-delay="200">
+        <div class="row g-4 align-items-stretch" data-aos="fade-up" data-aos-delay="100">
 
-          <div class="col-lg-6">
-            <div class="about-img">
-              <img src="../assets/img/about.jpg" class="img-fluid" alt="">
+          <div class="col-lg-6 d-flex flex-column" data-aos="fade-right">
+            <div class="about-img-card">
+              <div class="img-wrap">
+                <img src="../assets/img/about.jpg" class="img-fluid" alt="DSSO सामाजिक अन्तरक्रिया">
+                <div class="photo-floating-badge">
+                  <div class="badge-icon"><i class="bi bi-people-fill"></i></div>
+                  <div class="badge-info">
+                    <strong>समुदाय अन्तरक्रिया</strong>
+                    <span>स्थलगत परिचालन तथा परामर्श • सिराहा</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="col-lg-6">
-            <!-- <h3 class="pt-0 pt-lg-5">Our Focus Areas</h3> -->
+          <div class="col-lg-6 d-flex flex-column" data-aos="fade-left">
+            <div class="about-interactive-card">
 
-            <!-- Tabs -->
-            <ul class="nav nav-pills mb-3">
-              <a class="nav-link active" data-bs-toggle="pill" href="#about-tab1">VMG</a>
-              <a class="nav-link" data-bs-toggle="pill" href="#about-tab2">Objectives</a>
-              <a class="nav-link" data-bs-toggle="pill" href="#about-tab3">Collaboration</a>         
-             
-            </ul><!-- End Tabs -->
+              <!-- Tabs -->
+              <ul class="nav nav-pills mb-3">
+                <a class="nav-link active" data-bs-toggle="pill" href="#about-tab1"><i class="bi bi-compass"></i> VMG</a>
+                <a class="nav-link" data-bs-toggle="pill" href="#about-tab2"><i class="bi bi-card-checklist"></i> Objectives</a>
+                <a class="nav-link" data-bs-toggle="pill" href="#about-tab3"><i class="bi bi-diagram-3"></i> Collaboration</a>
+              </ul>
 
-            <!-- Tab Content -->
-            <div class="tab-content">
+              <!-- Tab Content -->
+              <div class="tab-content flex-grow-1">
 
-              <div class="tab-pane fade show active" id="about-tab1">
-                <p class="fst-italic">Vision, Mission and Goal  (VMG) of the Organization: </p>
-                
-                <div class="d-flex align-items-center mt-4"> <h4 style="margin-bottom: 10px;">Vision: </h4>  </div>
-                <p class="font-size" align="justify">Creation of just and equitable Society without discrimination and exploitation in society and state. </p>
-
-                <div class="d-flex align-items-center mt-4">  <h4 style="margin-bottom: 10px;">Mission: </h4>  </div>                
-                <p class="font-size" align="justify">Organize and empower Madhesi Dalits for their leadership development to advocate on their fundamental rights issue to increase access in public service and resources. </p>
-                
-                <div class="d-flex align-items-center mt-4"> <h4 style="margin-bottom: 10px;">Goal: </h4> </div>
-                <p class="font-size" align="justify"> Contribute to promoting socioeconomic status, psychological boost up of Madheshi Dalits through awareness, rising on social discriminatory malpractice and empowerment for their voice and concern accessing public services and resources. </p>
-
-              </div><!-- End Tab 1 Content -->              
-
-
-              <div class="tab-pane fade" id="about-tab2">
-                <p class="fst-italic">Objective of the Organization:</p>
-
-                <div class="d-flex mt-4" style="margin-bottom: 10px;"> <h4>Objective (s) :</h4>  </div> 
-                  <ul class="font-size" style="text-align: justify;">
-                    <li style="margin-bottom: 10px;">To advocate for the protection and promotion of human rights and social justice.</li>
-                    
-                    <li style="margin-bottom: 10px;">To raise the voice for the special rights and reservation of Madhesi Dalits, landless, poor and oppressed groups, Harawa-Charawa, migrant people, and adolescents.</li>
-                    
-                    <li style="margin-bottom: 10px;">To increase the access of Madhesi Dalits to government services and public resources.</li>
-                    
-                    <li style="margin-bottom: 10px;">To ensure the civil and political, as well as economic, social, and cultural rights of Madhesi Dalits.</li>
-                    
-                    <li style="margin-bottom: 10px;">To promote income generation opportunities for Madhesi Dalits and Harawa-Charawa communities for better livelihood options.</li>
-                    
-                    <li style="margin-bottom: 10px;">To promote quality education for children belonging to Madhesi Dalit communities.</li>
-                    
-                    <li style="margin-bottom: 10px;">To conduct awareness campaigns against caste-based discrimination and untouchability, dowry practices, early marriage, polygamy, and forced labor systems.</li>
-                    
-                    <li>To enhance coordination and collaboration with government line agencies, policymakers, duty bearers, civil society organizations, media, lawyers, and community-based organizations.</li>
-                  </ul>
-               
-              </div><!-- End Tab 2 Content -->
-
-              <div class="tab-pane fade" id="about-tab3">
-
-                <p class="fst-italic font-size" align="justify">Through strategic partnerships and community-driven initiatives, DSSO continues to work toward building an equitable, inclusive, and dignified society for all. DSSO maintains strong coordination and collaboration with:</p>
-
-                <div class="d-flex align-items-center mt-4">
+                <!-- Tab 1: Differentiated VMG Pillars -->
+                <div class="tab-pane fade show active" id="about-tab1">
+                  <p class="about-tab-lead">संस्थाको रणनीतिक खाका (VMG Framework):</p>
                   
-                  <ul class="font-size" style="text-align: justify;">
-                    <li style="margin-bottom: 10px;">Government line agencies.</li>                    
-                    <li style="margin-bottom: 10px;">Elected representatives.</li>                    
-                    <li style="margin-bottom: 10px;">Civil society organizations.</li>                    
-                    <li style="margin-bottom: 10px;">Issue-based movements.</li>                    
-                    <li style="margin-bottom: 10px;">Trade unions.</li>                    
-                    <li style="margin-bottom: 10px;">Sister organizations affiliated with various political parties.</li>                    
-                    <li style="margin-bottom: 10px;">Duty bearers and relevant stakeholders.</li>
-                    
+                  <div class="vmg-card vmg-vision">
+                    <div class="vmg-icon-wrap"><i class="bi bi-eye-fill"></i></div>
+                    <div class="vmg-body">
+                      <h4>दूरदृष्टि <span>(Vision)</span></h4>
+                      <p>समाज र राज्यमा कुनै पनि प्रकारको भेदभाव र शोषणरहित न्यायपूर्ण तथा समतामूलक समाजको निर्माण।</p>
+                    </div>
+                  </div>
+
+                  <div class="vmg-card vmg-mission">
+                    <div class="vmg-icon-wrap"><i class="bi bi-bullseye"></i></div>
+                    <div class="vmg-body">
+                      <h4>ध्येय <span>(Mission)</span></h4>
+                      <p>मधेशी दलितहरूलाई संगठित र सशक्त बनाउँदै उनीहरूको नेतृत्व विकास गरी मौलिक हक-अधिकार तथा सार्वजनिक सेवा र स्रोतहरूमा पहुँच अभिवृद्धि गर्न वकालत गर्ने।</p>
+                    </div>
+                  </div>
+
+                  <div class="vmg-card vmg-goal">
+                    <div class="vmg-icon-wrap"><i class="bi bi-trophy-fill"></i></div>
+                    <div class="vmg-body">
+                      <h4>लक्ष्य <span>(Goal)</span></h4>
+                      <p>सामाजिक विभेद र कुप्रथा विरुद्ध सचेतना अभिवृद्धि गर्दै मधेशी दलितहरूको सामाजिक-आर्थिक स्तर उकास्न तथा सार्वजनिक सेवा र स्रोतहरूमा पहुँच सुनिश्चित गर्ने।</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Tab 2: Numbered Objectives Roadmap -->
+                <div class="tab-pane fade" id="about-tab2">
+                  <p class="about-tab-lead">संस्थाका प्रमुख रणनीतिक उद्देश्यहरू (Core Objectives):</p>
+                  <ul class="objectives-list">
+                    <li><span class="obj-badge">01</span> <span>मानवअधिकार, आत्मसम्मान र सामाजिक न्यायको संरक्षण र प्रवर्द्धन गर्ने।</span></li>
+                    <li><span class="obj-badge">02</span> <span>मधेशी दलित, भूमिहीन, हरवा-चरवा र किशोर-किशोरीहरूका लागि विशेष अधिकार र आरक्षणको पैरवी गर्ने।</span></li>
+                    <li><span class="obj-badge">03</span> <span>सरकारी सेवा, सुविधा र सार्वजनिक स्रोतहरूमा मधेशी दलितहरूको सहज पहुँच विस्तार गर्ने।</span></li>
+                    <li><span class="obj-badge">04</span> <span>दलित र हरवा-चरवा समुदायका लागि दिगो आयआर्जन तथा जीविकोपार्जनका अवसरहरू सिर्जना गर्ने।</span></li>
+                    <li><span class="obj-badge">05</span> <span>मधेशी दलित बालबालिकाहरूका लागि गुणस्तरीय र समावेशी शिक्षा प्रवर्द्धन गर्ने।</span></li>
+                    <li><span class="obj-badge">06</span> <span>जातीय भेदभाव, छुवाछूत, बालविवाह, दाइजो प्रथा र जबरजस्ती श्रम विरुद्ध सशक्त अभियान सञ्चालन गर्ने।</span></li>
+                    <li><span class="obj-badge">07</span> <span>सरोकारवाला निकाय, नीति निर्माता र नागरिक समाजसँग निरन्तर समन्वय तथा सहकार्य विस्तार गर्ने।</span></li>
                   </ul>
                 </div>
-              </div>
 
+                <!-- Tab 3: Categorized Sector Collaborations -->
+                <div class="tab-pane fade" id="about-tab3">
+                  <p class="about-tab-lead">रणनीतिक साझेदारी र बहुपक्षीय सहकार्य (Strategic Collaboration):</p>
+                  <div class="collab-grid">
+                    <div class="collab-pill collab-gov">
+                      <div class="collab-icon"><i class="bi bi-bank"></i></div>
+                      <span>सरकारी विषयगत निकायहरू</span>
+                    </div>
+                    <div class="collab-pill collab-elected">
+                      <div class="collab-icon"><i class="bi bi-person-badge"></i></div>
+                      <span>स्थानीय जनप्रतिनिधिहरू</span>
+                    </div>
+                    <div class="collab-pill collab-cso">
+                      <div class="collab-icon"><i class="bi bi-globe2"></i></div>
+                      <span>नागरिक समाज संस्थाहरू</span>
+                    </div>
+                    <div class="collab-pill collab-movement">
+                      <div class="collab-icon"><i class="bi bi-megaphone"></i></div>
+                      <span>मुद्दा-आधारित सामाजिक आन्दोलनहरू</span>
+                    </div>
+                    <div class="collab-pill collab-union">
+                      <div class="collab-icon"><i class="bi bi-briefcase"></i></div>
+                      <span>ट्रेड युनियन तथा सञ्जालहरू</span>
+                    </div>
+                    <div class="collab-pill collab-legal">
+                      <div class="collab-icon"><i class="bi bi-shield-check"></i></div>
+                      <span>कानुनी पैरवीकर्ता तथा सरोकारवाला</span>
+                    </div>
+                  </div>
+                </div>
 
-            </div>
+              </div><!-- End Tab Content -->
 
+            </div><!-- End About Interactive Card -->
           </div>
 
         </div>
@@ -221,348 +341,365 @@
 
     </section><!-- /About Section -->
 
-               
-
-
-    <!-- Clients Section -->
-    <section id="core" class="clients section core-background">
-    <H2 align="center">Core of the organization : </H2>
-      <div class="container" data-aos="fade-up"><br>
-
-        <div class="row gy-4">
-
-          <div class=" col-md-3 col-6">
-          <h6>• Democratic exercise </h6>
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6">
-            <h6>• Accountability </h6>
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6">
-             <h6>• Honesty  </h6>
-          </div><!-- End Client Item -->
-
-          <div class="col-xl-2 col-md-3 col-6">
-            <h6>• Impartiality </h6>
-          </div><!-- End Client Item -->
-
-          <div class=" col-xl-2 col-md-3 col-6">
-           <h6>• Transparency </h6>
-          </div><!-- End Client Item -->       
-
-        </div>
-
+    <!-- Core Values Section -->
+    <section id="core" class="core-values-section">
+      <div class="container section-title" data-aos="fade-up">
+        <h2 style="color: #ffffff;">DSSO का मूल सिद्धान्तहरू</h2>
+        <p style="color: #cbd5e1;">हाम्रो कार्यशैली, सुशासन र सामाजिक निष्ठालाई दिशानिर्देश गर्ने पाँच आधारभूत मूल्यहरू।</p>
       </div>
 
-    </section><!-- /Clients Section -->
+      <div class="container" data-aos="fade-up">
+        <div class="row g-2 justify-content-center">
 
-    <!-- Services Section -->
-    <section id="donors" class="services section">
+          <div class="col-lg col-md-4 col-6">
+            <div class="value-card">
+              <div class="value-icon"><i class="bi bi-people-fill"></i></div>
+              <h4>लोकतान्त्रिक अभ्यास</h4>
+              <p>सहभागितामूलक लोकतान्त्रिक विधिको अवलम्बन।</p>
+            </div>
+          </div>
 
-      <!-- Section Title -->
+          <div class="col-lg col-md-4 col-6">
+            <div class="value-card">
+              <div class="value-icon"><i class="bi bi-shield-check"></i></div>
+              <h4>जवाफदेहिता</h4>
+              <p>अधिकारधारक समुदायप्रति उच्च जिम्मेवारीबोध।</p>
+            </div>
+          </div>
+
+          <div class="col-lg col-md-4 col-6">
+            <div class="value-card">
+              <div class="value-icon"><i class="bi bi-patch-check-fill"></i></div>
+              <h4>इमान्दारी र निष्ठा</h4>
+              <p>उच्च नैतिक आचरण र सत्यनिष्ठाको अभ्यास।</p>
+            </div>
+          </div>
+
+          <div class="col-lg col-md-4 col-6">
+            <div class="value-card">
+              <div class="value-icon"><i class="bi bi-scale"></i></div>
+              <h4>निष्पक्षता</h4>
+              <p>पूर्वाग्रहरहित र समन्यायिक सेवा प्रवाह।</p>
+            </div>
+          </div>
+
+          <div class="col-lg col-md-4 col-6">
+            <div class="value-card">
+              <div class="value-icon"><i class="bi bi-eye-fill"></i></div>
+              <h4>पारदर्शिता</h4>
+              <p>खुला आर्थिक र संस्थागत सुशासनको पालना।</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section><!-- /Core Values Section -->
+
+    <!-- Donors & Partners Section -->
+    <section id="donors" class="services section light-background">
+
       <div class="container section-title" data-aos="fade-up">
-        <h2>Major Donors and Partners:</h2>
-        <!-- <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p> -->
-      </div><!-- End Section Title -->
+        <h2>प्रमुख साझेदार तथा दातृ निकायहरू</h2>
+        <p>सामुदायिक सशक्तीकरण र नीतिगत सुधारका लागि राष्ट्रिय तथा अन्तर्राष्ट्रिय विकास साझेदारहरूसँगको सहकार्य।</p>
+      </div>
 
       <div class="container">
 
-        <div class="row gy-4">
+        <div class="row g-3">
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="service-item  position-relative">
-              <div class="icon">
-                <i class="bi bi-activity"></i>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="partner-card">
+              <div class="partner-logo-box">
+                <img src="../assets/img/donors/actoinaid.jpg" alt="ActionAid Nepal">
               </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Ngo / CBO-NPLAP</h3>
-              </a>
-              <p>Provident nihil minus qui consequatur non omnis maiores. Eos accusantium minus dolores iure perferendis tempore et consequatur.</p>
+              <h3>ActionAid Nepal</h3>
+              <p>दलित मानवअधिकार, हरवा-चरवा कृषि श्रम मुक्ति, लैङ्गिक समानता र सामुदायिक सशक्तीकरण अभियानमा रणनीतिक साझेदारी।</p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-broadcast"></i>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="partner-card">
+              <div class="partner-logo-box">
+                <img src="../assets/img/donors/ceci.png" alt="CECI Nepal">
               </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>UTTHAN</h3>
-              </a>
-              <p>Ut autem aut autem non a. Sint sint sit facilis nam iusto sint. Libero corrupti neque eum hic non ut nesciunt dolorem.</p>
+              <h3>CECI Nepal</h3>
+              <p>सिमान्तकृत महिलाहरूको नेतृत्व विकास, सामुदायिक आर्थिक पुनरुत्थान र दिगो जीविकोपार्जन प्रवर्द्धनमा सहकार्य।</p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <!-- <i class="bi bi-easel"></i> -->
-
-                <img src="../assets/img/donors/actoinaid.jpg" class="donor-img" alt="">
+          <div class="col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="partner-card">
+              <div class="partner-logo-box">
+                <img src="../assets/img/donors/karkhanasamuh.png" alt="Karkhana Samuha">
               </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Actionaid Nepal</h3>
-              </a>
-              <p>Ut excepturi voluptatem nisi sed. Quidem fuga consequatur. Minus ea aut. Vel qui id voluptas adipisci eos earum corrupti.</p>
+              <h3>कारखाना समूह</h3>
+              <p>किशोर-किशोरीहरूका लागि व्यावहारिक शिक्षा, युवा नेतृत्व क्षमता अभिवृद्धि र नवीनतम सीप विकास कार्यशाला।</p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item position-relative">
-              <div class="icon">
-              <img src="../assets/img/donors/ceci.png" class="donor-img" alt="">
-
+          <div class="col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="partner-card">
+              <div class="partner-logo-box">
+                <i class="bi bi-shield-fill-check"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>CECI</h3>
-              </a>
-              <p>Non et temporibus minus omnis sed dolor esse consequatur. Cupiditate sed error ea fuga sit provident adipisci neque.</p>
-              <a href="service-details.html" class="stretched-link"></a>
+              <h3>उत्थान (UTTHAN)</h3>
+              <p>दलित अधिकारको राष्ट्रिय पैरवी, कानुनी सुरक्षा, नीतिगत सुधार अभियान र विभेद विरुद्ध संयुक्त सामाजिक आन्दोलन।</p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-calendar4-week"></i>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="partner-card">
+              <div class="partner-logo-box">
+                <i class="bi bi-diagram-3-fill"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>LGCDP</h3>
-              </a>
-              <p>Cumque et suscipit saepe. Est maiores autem enim facilis ut aut ipsam corporis aut. Sed animi at autem alias eius labore.</p>
-              <a href="service-details.html" class="stretched-link"></a>
+              <h3>LGCDP</h3>
+              <p>स्थानीय शासन तथा सामुदायिक विकास कार्यक्रम — नागरिक सहभागिता, वडास्तरीय योजना तर्जुमा र सामाजिक जवाफदेहिता।</p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <i class="bi bi-chat-square-text"></i>
+          <div class="col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="partner-card">
+              <div class="partner-logo-box">
+                <i class="bi bi-lightning-charge-fill"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>ADB TA 6526 / CRT</h3>
-              </a>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="service-details.html" class="stretched-link"></a>
+              <h3>ADB TA 6526 / CRT</h3>
+              <p>एसियाली विकास बैंक प्राविधिक सहयोग तथा ग्रामीण प्रविधि केन्द्र — ग्रामीण स्वच्छ ऊर्जा पहुँच र वातावरणमैत्री जीविकोपार्जन।</p>
             </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-            <div class="service-item position-relative">
-              <div class="icon">
-                <img src="../assets/img/donors/karkhanasamuh.png" class="donor-img" alt="">
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Karkhana Samuha </h3>
-              </a>
-              <p>Hic molestias ea quibusdam eos. Fugiat enim doloremque aut neque non et debitis iure. Corrupti recusandae ducimus enim.</p>
-              <a href="service-details.html" class="stretched-link"></a>
-            </div>
-          </div><!-- End Service Item -->
+          </div>
 
         </div>
 
       </div>
 
-    </section><!-- /Services Section -->
+    </section><!-- /Donors & Partners Section -->
 
-    <!-- Why Us Section -->
-    <section id="project" class="why-us section light-background">
+    <!-- Major Activities Section -->
+    <section id="project" class="why-us section">
 
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Major Activities of the Organizations:</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+        <h2>संस्थाका मुख्य गतिविधिहरू</h2>
+        <p>सिराहा जिल्ला तथा मधेश प्रदेशमा सामाजिक न्याय, आर्थिक सुरक्षा र कानुनी अधिकारका लागि सञ्चालित प्रभावकारी कार्यक्रमहरू।</p>
+      </div>
 
       <div class="container">
 
-        <div class="row gy-4">
+        <div class="row g-3">
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="card-item">
-              <span>01</span>
-              <h4>Evidence based Advocacy for the rights of Dalits, women and Land-Poor</h4>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="activity-card">
+              <div class="activity-card-header">
+                <span class="activity-number">०१</span>
+                <i class="bi bi-megaphone activity-icon"></i>
+              </div>
+              <h4>दलित, महिला र भूमिहीन गरिबहरूको अधिकारका लागि तथ्यमा आधारित पैरवी</h4>
             </div>
-          </div><!-- Card Item -->
+          </div>
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="card-item">
-              <span>02</span>
-              <h4>Coordination, Collaboration and alliance building with likeminded stakeholders</h4>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="activity-card">
+              <div class="activity-card-header">
+                <span class="activity-number">०२</span>
+                <i class="bi bi-people activity-icon"></i>
+              </div>
+              <h4>समान विचारधारा भएका सरोकारवालाहरूसँग समन्वय, सहकार्य र सञ्जाल निर्माण</h4>
             </div>
-          </div><!-- Card Item -->
+          </div>
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <span>03</span>
-              <h4>Formation and strengthening the right holders' group</h4>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="activity-card">
+              <div class="activity-card-header">
+                <span class="activity-number">०३</span>
+                <i class="bi bi-shield-check activity-icon"></i>
+              </div>
+              <h4>अधिकारधारक समूहहरूको गठन, परिचालन तथा संस्थागत क्षमता विकास</h4>
             </div>
-          </div><!-- Card Item -->
+          </div>
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <span>04</span>
-              <h4>Declaration of Early Marriage Free Zone</h4>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="activity-card">
+              <div class="activity-card-header">
+                <span class="activity-number">०४</span>
+                <i class="bi bi-heart-break activity-icon"></i>
+              </div>
+              <h4>समुदायमा बालविवाह मुक्त क्षेत्र घोषणाका लागि जनचेतनामूलक अभियान</h4>
             </div>
-          </div><!-- Card Item -->
+          </div>
 
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <span>05</span>
-              <h4>Registration of 15 Saving & Credit Groups in local government mechanism </h4>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="activity-card">
+              <div class="activity-card-header">
+                <span class="activity-number">०५</span>
+                <i class="bi bi-wallet2 activity-icon"></i>
+              </div>
+              <h4>स्थानीय सरकारी संयन्त्रमा १५ वटा बचत तथा ऋण समूहहरूको विधिवत दर्ता</h4>
             </div>
-          </div><!-- Card Item -->
+          </div>
 
-
-         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <span>06</span>
-              <h4>Interaction between local elected representatives and Saving & Credit Group members </h4>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="activity-card">
+              <div class="activity-card-header">
+                <span class="activity-number">०६</span>
+                <i class="bi bi-chat-left-dots activity-icon"></i>
+              </div>
+              <h4>स्थानीय जनप्रतिनिधि र बचत तथा ऋण समूहका सदस्यहरू बीच नीतिगत अन्तरक्रिया</h4>
             </div>
-          </div><!-- Card Item -->
+          </div>
 
-         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <span>07</span>
-              <h4>Campaign of Human Trafficking</h4>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="activity-card">
+              <div class="activity-card-header">
+                <span class="activity-number">०७</span>
+                <i class="bi bi-exclamation-triangle activity-icon"></i>
+              </div>
+              <h4>मानव बेचबिखन तथा असुरक्षित श्रम आप्रवासन विरुद्ध सचेतना अभियान</h4>
             </div>
-          </div><!-- Card Item -->
+          </div>
 
-         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <span>08</span>
-              <h4>Reproductive Health training to teenager groups</h4>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="activity-card">
+              <div class="activity-card-header">
+                <span class="activity-number">०८</span>
+                <i class="bi bi-heart-pulse activity-icon"></i>
+              </div>
+              <h4>किशोर-किशोरी समूहहरूका लागि प्रजनन् तथा यौन स्वास्थ्य अभिमुखीकरण</h4>
             </div>
-          </div><!-- Card Item -->
+          </div>
 
-         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <span>09</span>
-              <h4>Leadership training to teenager groups</h4>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="activity-card">
+              <div class="activity-card-header">
+                <span class="activity-number">०९</span>
+                <i class="bi bi-stars activity-icon"></i>
+              </div>
+              <h4>युवा पुस्तालाई नेतृत्व विकास, व्यक्तित्व विकास तथा सञ्चार सीप तालिम</h4>
             </div>
-          </div><!-- Card Item -->
+          </div>
 
-         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <span>10</span>
-              <h4>Formation and strengthening the information center </h4>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="activity-card">
+              <div class="activity-card-header">
+                <span class="activity-number">१०</span>
+                <i class="bi bi-info-square activity-icon"></i>
+              </div>
+              <h4>सामुदायिक सूचना तथा स्रोत केन्द्रको स्थापना एवं प्रभावकारी सञ्चालन</h4>
             </div>
-          </div><!-- Card Item -->
+          </div>
 
-         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <span>11</span>
-              <h4>Awareness creation on the Constitutional and legal</h4>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="activity-card">
+              <div class="activity-card-header">
+                <span class="activity-number">११</span>
+                <i class="bi bi-book activity-icon"></i>
+              </div>
+              <h4>संवैधानिक हक-अधिकार तथा विभेद विरुद्धको कानुनी साक्षरता कार्यक्रम</h4>
             </div>
-          </div><!-- Card Item -->
+          </div>
 
-
-         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <span>12</span>
-              <h4>Lobby and Advocacy for quality education</h4>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="activity-card">
+              <div class="activity-card-header">
+                <span class="activity-number">१२</span>
+                <i class="bi bi-mortarboard activity-icon"></i>
+              </div>
+              <h4>सिमान्तकृत बालबालिकाको गुणस्तरीय शिक्षाको अधिकारका लागि लविङ र पैरवी</h4>
             </div>
-          </div><!-- Card Item -->
+          </div>
 
-         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card-item">
-              <span>13</span>
-              <h4>Activism against social maladies </h4>
+          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up">
+            <div class="activity-card">
+              <div class="activity-card-header">
+                <span class="activity-number">१३</span>
+                <i class="bi bi-hammer activity-icon"></i>
+              </div>
+              <h4>सामाजिक कुरीति: जातीय छुवाछूत, दाइजो र जबरजस्ती श्रम प्रथा विरुद्ध प्रतिरोध</h4>
             </div>
-          </div><!-- Card Item -->
+          </div>
+
         </div>
 
       </div>
 
-    </section><!-- /Why Us Section -->
-
+    </section><!-- /Major Activities Section -->
 
     <!-- Team Section -->
-    <section id="team" class="team section">
+    <section id="team" class="team section light-background">
 
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Team</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
+        <h2>हाम्रो कार्यसमिति तथा नेतृत्व</h2>
+        <p>सामाजिक न्याय र समतामूलक समाज निर्माणका लागि प्रतिबद्ध नेतृत्व एवं सामाजिक अभियन्ताहरू।</p>
+      </div>
 
       <div class="container">
 
-        <div class="row gy-4">
+        <div class="row g-3">
 
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="member">
-              <img src="../assets/img/team/team-1.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Walter White</h4>
-                  <span>Chief Executive Officer</span>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
+          <div class="col-lg-3 col-6" data-aos="fade-up">
+            <div class="team-card">
+              <div class="team-img-wrap">
+                <img src="../assets/img/team/team-1.jpg" alt="कार्यसमिति अध्यक्ष">
+              </div>
+              <div class="team-content">
+                <h4>कार्यसमिति अध्यक्ष</h4>
+                <span class="team-role">संस्थागत नेतृत्व</span>
+                <div class="team-social">
+                  <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                  <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                  <a href="#" aria-label="Email"><i class="bi bi-envelope"></i></a>
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="member">
-              <img src="../assets/img/team/team-2.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Sarah Jhonson</h4>
-                  <span>Product Manager</span>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
+          <div class="col-lg-3 col-6" data-aos="fade-up">
+            <div class="team-card">
+              <div class="team-img-wrap">
+                <img src="../assets/img/team/team-2.jpg" alt="कार्यकारी निर्देशक">
+              </div>
+              <div class="team-content">
+                <h4>कार्यकारी निर्देशक</h4>
+                <span class="team-role">कार्यक्रम सञ्चालन</span>
+                <div class="team-social">
+                  <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                  <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                  <a href="#" aria-label="Email"><i class="bi bi-envelope"></i></a>
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="member">
-              <img src="../assets/img/team/team-3.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>William Anderson</h4>
-                  <span>CTO</span>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
+          <div class="col-lg-3 col-6" data-aos="fade-up">
+            <div class="team-card">
+              <div class="team-img-wrap">
+                <img src="../assets/img/team/team-3.jpg" alt="कार्यक्रम संयोजक">
+              </div>
+              <div class="team-content">
+                <h4>कार्यक्रम संयोजक</h4>
+                <span class="team-role">सामुदायिक वकालत</span>
+                <div class="team-social">
+                  <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                  <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                  <a href="#" aria-label="Email"><i class="bi bi-envelope"></i></a>
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="member">
-              <img src="../assets/img/team/team-4.jpg" class="img-fluid" alt="">
-              <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Amanda Jepson</h4>
-                  <span>Accountant</span>
-                  <div class="social">
-                    <a href=""><i class="bi bi-twitter-x"></i></a>
-                    <a href=""><i class="bi bi-facebook"></i></a>
-                    <a href=""><i class="bi bi-instagram"></i></a>
-                    <a href=""><i class="bi bi-linkedin"></i></a>
-                  </div>
+          <div class="col-lg-3 col-6" data-aos="fade-up">
+            <div class="team-card">
+              <div class="team-img-wrap">
+                <img src="../assets/img/team/team-4.jpg" alt="वित्त तथा प्रशासन अधिकृत">
+              </div>
+              <div class="team-content">
+                <h4>वित्त अधिकृत</h4>
+                <span class="team-role">आर्थिक सुशासन</span>
+                <div class="team-social">
+                  <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                  <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                  <a href="#" aria-label="Email"><i class="bi bi-envelope"></i></a>
                 </div>
               </div>
             </div>
-          </div><!-- End Team Member -->
+          </div>
 
         </div>
 
@@ -570,79 +707,83 @@
 
     </section><!-- /Team Section -->
 
-
-    
-
-
-
-      
     <!-- Contact Section -->
-    <section id="contact" class="contact section light-background">
+    <section id="contact" class="contact section">
 
-      <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-      </div><!-- End Section Title -->
+        <h2>सम्पर्क विवरण</h2>
+        <p>कुनै जिज्ञासा, सहकार्य प्रस्ताव वा सामुदायिक परामर्शका लागि हामीलाई सम्पर्क गर्नुहोस्।</p>
+      </div>
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="container" data-aos="fade-up">
 
-        <div class="row gy-4" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-4">
-            <div class="info-item d-flex flex-column justify-content-center align-items-center">
-              <i class="bi bi-geo-alt"></i>
-              <h3>Address</h3>
-              <p>Madhesh Province , District : Siraha, Lahan Muncipality, Ward -1 </p>
-            </div>
-          </div><!-- End Info Item -->
+        <div class="row g-3">
 
           <div class="col-lg-4">
-            <div class="info-item d-flex flex-column justify-content-center align-items-center info-item-borders">
-              <i class="bi bi-telephone"></i>
-              <h3>Call Us</h3>
-              <p>+977 033-564907, 9814707077 </p>
-            </div>
-          </div><!-- End Info Item -->
 
-          <div class="col-lg-4">
-            <div class="info-item d-flex flex-column justify-content-center align-items-center">
-              <i class="bi bi-envelope"></i>
-              <h3>Email Us</h3>
-              <p>dsso.siraha@gmail.com </p>
-            </div>
-          </div><!-- End Info Item -->
-
-        </div>
-
-        <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="300">
-          <div class="row gy-4">
-
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+            <div class="contact-info-card">
+              <div class="contact-icon"><i class="bi bi-geo-alt-fill"></i></div>
+              <div>
+                <h3>कार्यालयको ठेगाना</h3>
+                <p>लहान नगरपालिका - १, सिराहा जिल्ला, मधेश प्रदेश</p>
+              </div>
             </div>
 
-            <div class="col-md-6 ">
-              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+            <div class="contact-info-card">
+              <div class="contact-icon"><i class="bi bi-telephone-fill"></i></div>
+              <div>
+                <h3>फोन सम्पर्क</h3>
+                <p>
+                  <a href="tel:+977033564907">+९७७ ०३३-५६४९०७</a> | 
+                  <a href="tel:+9779814707077">+९७७ ९८१४७०७०७७</a>
+                </p>
+              </div>
             </div>
 
-            <div class="col-md-12">
-              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-            </div>
-
-            <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-            </div>
-
-            <div class="col-md-12 text-center">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-
-              <button type="submit">Send Message</button>
+            <div class="contact-info-card">
+              <div class="contact-icon"><i class="bi bi-envelope-fill"></i></div>
+              <div>
+                <h3>इमेल सम्पर्क</h3>
+                <p><a href="mailto:dsso.siraha@gmail.com">dsso.siraha@gmail.com</a></p>
+                <small class="text-muted">समय: आइत – शुक्र (बिहान १० – बेलुका ५)</small>
+              </div>
             </div>
 
           </div>
-        </form><!-- End Contact Form -->
+
+          <div class="col-lg-8">
+            <form action="../forms/contact.php" method="post" class="php-email-form">
+              <div class="row g-2">
+
+                <div class="col-md-6">
+                  <input type="text" id="name" name="name" class="form-control" placeholder="तपाईंको पूरा नाम" required>
+                </div>
+
+                <div class="col-md-6">
+                  <input type="email" id="email" class="form-control" name="email" placeholder="तपाईंको इमेल ठेगाना" required>
+                </div>
+
+                <div class="col-md-12">
+                  <input type="text" id="subject" class="form-control" name="subject" placeholder="सन्देशको विषय" required>
+                </div>
+
+                <div class="col-md-12">
+                  <textarea id="message" class="form-control" name="message" rows="4" placeholder="यहाँ आफ्नो सन्देश लेख्नुहोस्..." required></textarea>
+                </div>
+
+                <div class="col-md-12">
+                  <div class="loading">सन्देश पठाइँदैछ...</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message"><i class="bi bi-check-circle-fill me-1"></i>तपाईंको सन्देश सफलतापूर्वक पठाइयो। धन्यवाद!</div>
+
+                  <button type="submit"><i class="bi bi-send-fill me-1"></i>सन्देश पठाउनुहोस्</button>
+                </div>
+
+              </div>
+            </form>
+          </div>
+
+        </div>
 
       </div>
 
@@ -650,42 +791,79 @@
 
   </main>
 
-  <footer id="footer" class="footer dark-background">
+  <!-- Compact Corporate Footer -->
+  <footer id="footer" class="footer">
 
+    <div class="container footer-top">
+      <div class="row g-4">
 
+        <div class="col-lg-4 col-md-6 footer-about">
+          <a href="index.html" class="d-inline-block">
+            <img src="../assets/img/logo.png" alt="DSSO Logo">
+          </a>
+          <p>
+            <strong>दलित समाज सेवा संघ (DSSO)</strong> सन् २००० मा सिराहामा स्थापित र सन् २००१ मा समाज कल्याण परिषदमा आबद्ध तृणमूल तहको गैर-सरकारी संस्था हो।
+          </p>
+        </div>
 
- 
+        <div class="col-lg-2 col-md-3 col-6 footer-links">
+          <h4>द्रुत लिङ्कहरू</h4>
+          <ul>
+            <li><a href="#hero">गृहपृष्ठ</a></li>
+            <li><a href="#about">हाम्रो बारेमा</a></li>
+            <li><a href="#core">मूल सिद्धान्तहरू</a></li>
+            <li><a href="#donors">साझेदारहरू</a></li>
+            <li><a href="#project">गतिविधिहरू</a></li>
+            <li><a href="#contact">सम्पर्क</a></li>
+          </ul>
+        </div>
 
+        <div class="col-lg-3 col-md-3 col-6 footer-links">
+          <h4>प्रमुख कार्यक्रमहरू</h4>
+          <ul>
+            <li><a href="#project">दलित मानवअधिकार</a></li>
+            <li><a href="#project">हरवा-चरवा मुक्ति अभियान</a></li>
+            <li><a href="#project">महिला बचत तथा ऋण समूह</a></li>
+            <li><a href="#project">बालविवाह रोकथाम</a></li>
+            <li><a href="#project">संवैधानिक साक्षरता</a></li>
+          </ul>
+        </div>
 
+        <div class="col-lg-3 col-md-6 footer-contact">
+          <h4>प्रधान कार्यालय</h4>
+          <p><i class="bi bi-geo-alt"></i> लहान नगरपालिका - १, सिराहा, नेपाल</p>
+          <p><i class="bi bi-telephone"></i> <a href="tel:+977033564907">+९७७ ०३३-५६४९०७</a></p>
+          <p><i class="bi bi-phone"></i> <a href="tel:+9779814707077">+९७७ ९८१४७०७०७७</a></p>
+          <p><i class="bi bi-envelope"></i> <a href="mailto:dsso.siraha@gmail.com">dsso.siraha@gmail.com</a></p>
+        </div>
 
+      </div>
+    </div>
 
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">DSS0-Siraha</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://prasanta.com.np/">Prashant Shrestha</a>
+    <div class="container footer-bottom">
+      <div>
+        <span>© Copyright <strong>DSSO-Siraha</strong>. सर्वाधिकार सुरक्षित।</span>
+      </div>
+      <div>
+        <span>डिजाइन: <a href="https://prasanta.com.np/" target="_blank" rel="noopener">प्रशान्त श्रेष्ठ</a></span>
       </div>
     </div>
 
   </footer>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <!-- Scroll Top Button -->
+  <a href="#" id="scroll-top" class="scroll-top" aria-label="माथि जानुहोस्">
+    <i class="bi bi-arrow-up-short"></i>
+  </a>
 
   <!-- Preloader -->
   <div id="preloader"></div>
 
   <!-- Vendor JS Files -->
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/vendor/php-email-form/validate.js"></script>
   <script src="../assets/vendor/aos/aos.js"></script>
   <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
   <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
 
   <!-- Main JS File -->

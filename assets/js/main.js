@@ -1,22 +1,96 @@
 /**
-* Template Name: Groovin
-* Template URL: https://bootstrapmade.com/groovin-free-bootstrap-theme/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
+* DSSO - Dalit Samaj Sewa Sangh (Siraha, Nepal)
+* Core Application & 5-Variant Theme Engine
+* Production-grade compact UI & Event Handlers
 */
 
 (function() {
   "use strict";
 
   /**
-   * Apply .scrolled class to the body as the page is scrolled down
+   * 5-Variant Theme Engine (Permanent Dark Mode with 5 Atmospheric Palettes)
+   */
+  const themeVariants = ['emerald', 'sapphire', 'crimson', 'amber', 'violet'];
+  const variantOptionBtns = document.querySelectorAll('[data-set-variant]');
+
+  function getStoredVariant() {
+    const saved = localStorage.getItem('dsso-variant');
+    return themeVariants.includes(saved) ? saved : 'emerald';
+  }
+
+  function applyTheme(variant) {
+    const selectedVariant = themeVariants.includes(variant) ? variant : 'emerald';
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.setAttribute('data-variant', selectedVariant);
+    localStorage.setItem('dsso-theme', 'dark');
+    localStorage.setItem('dsso-variant', selectedVariant);
+
+    // Update active variant indicators
+    document.querySelectorAll('[data-set-variant]').forEach(btn => {
+      if (btn.getAttribute('data-set-variant') === selectedVariant) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+
+    // Update active variant label if present
+    const variantLabel = document.querySelector('.current-variant-label');
+    if (variantLabel) {
+      const activeBtn = document.querySelector(`[data-set-variant="${selectedVariant}"]`);
+      if (activeBtn) {
+        variantLabel.textContent = activeBtn.getAttribute('data-variant-name') || selectedVariant;
+      }
+    }
+  }
+
+  // Initialize theme on load (Permanent dark theme default)
+  const currentVariant = getStoredVariant();
+  applyTheme(currentVariant);
+
+  // Toggle color variant dropdown on click / touch
+  const variantDropdowns = document.querySelectorAll('.variant-dropdown');
+  variantDropdowns.forEach(dropdown => {
+    const btn = dropdown.querySelector('.variant-btn');
+    if (btn) {
+      btn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle('active');
+      });
+    }
+  });
+
+  // Close variant dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    variantDropdowns.forEach(dropdown => {
+      if (!dropdown.contains(e.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+  });
+
+  // Select color variant (5 options)
+  variantOptionBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const selectedVariant = btn.getAttribute('data-set-variant');
+      if (themeVariants.includes(selectedVariant)) {
+        applyTheme(selectedVariant);
+        // Close dropdown
+        variantDropdowns.forEach(d => d.classList.remove('active'));
+      }
+    });
+  });
+
+  /**
+   * Apply .scrolled class to body on scroll
    */
   function toggleScrolled() {
     const selectBody = document.querySelector('body');
     const selectHeader = document.querySelector('#header');
-    if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
-    window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
+    if (!selectHeader) return;
+    window.scrollY > 40 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
   }
 
   document.addEventListener('scroll', toggleScrolled);
@@ -27,35 +101,36 @@
    */
   const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 
-  function mobileNavToogle() {
+  function mobileNavToggle() {
+    if (!mobileNavToggleBtn) return;
     document.querySelector('body').classList.toggle('mobile-nav-active');
     mobileNavToggleBtn.classList.toggle('bi-list');
     mobileNavToggleBtn.classList.toggle('bi-x');
   }
-  mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+
+  if (mobileNavToggleBtn) {
+    mobileNavToggleBtn.addEventListener('click', mobileNavToggle);
+  }
 
   /**
-   * Hide mobile nav on same-page/hash links
+   * Hide mobile nav on click
    */
   document.querySelectorAll('#navmenu a').forEach(navmenu => {
     navmenu.addEventListener('click', () => {
       if (document.querySelector('.mobile-nav-active')) {
-        mobileNavToogle();
+        mobileNavToggle();
       }
     });
-
   });
 
-  /**
-   * Toggle mobile nav dropdowns
-   */
-  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
-    navmenu.addEventListener('click', function(e) {
-      e.preventDefault();
-      this.parentNode.classList.toggle('active');
-      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
-      e.stopImmediatePropagation();
-    });
+  // Close mobile drawer when tapping outside
+  document.addEventListener('click', (e) => {
+    if (document.querySelector('.mobile-nav-active')) {
+      const navmenu = document.querySelector('#navmenu');
+      if (navmenu && !navmenu.contains(e.target) && !mobileNavToggleBtn.contains(e.target)) {
+        mobileNavToggle();
+      }
+    }
   });
 
   /**
@@ -64,141 +139,96 @@
   const preloader = document.querySelector('#preloader');
   if (preloader) {
     window.addEventListener('load', () => {
-      preloader.remove();
+      preloader.classList.add('loaded');
+      setTimeout(() => preloader.remove(), 300);
     });
   }
 
   /**
    * Scroll top button
    */
-  let scrollTop = document.querySelector('.scroll-top');
+  const scrollTop = document.querySelector('.scroll-top');
 
   function toggleScrollTop() {
     if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
+      window.scrollY > 200 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
   }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+
+  if (scrollTop) {
+    scrollTop.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
     });
-  });
+  }
 
   window.addEventListener('load', toggleScrollTop);
   document.addEventListener('scroll', toggleScrollTop);
 
   /**
-   * Animation on scroll function and init
+   * Animation on scroll (AOS)
    */
   function aosInit() {
-    AOS.init({
-      duration: 600,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    });
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 550,
+        easing: 'ease-out',
+        once: true,
+        mirror: false
+      });
+    }
   }
   window.addEventListener('load', aosInit);
 
   /**
-   * Auto generate the carousel indicators
+   * Carousel indicators & Auto-play Engine
    */
   document.querySelectorAll('.carousel-indicators').forEach((carouselIndicator) => {
-    carouselIndicator.closest('.carousel').querySelectorAll('.carousel-item').forEach((carouselItem, index) => {
-      if (index === 0) {
-        carouselIndicator.innerHTML += `<li data-bs-target="#${carouselIndicator.closest('.carousel').id}" data-bs-slide-to="${index}" class="active"></li>`;
-      } else {
-        carouselIndicator.innerHTML += `<li data-bs-target="#${carouselIndicator.closest('.carousel').id}" data-bs-slide-to="${index}"></li>`;
-      }
+    const carousel = carouselIndicator.closest('.carousel');
+    if (!carousel) return;
+    carousel.querySelectorAll('.carousel-item').forEach((carouselItem, index) => {
+      const activeClass = index === 0 ? 'class="active"' : '';
+      carouselIndicator.innerHTML += `<li data-bs-target="#${carousel.id}" data-bs-slide-to="${index}" ${activeClass}></li>`;
     });
   });
 
-  /**
-   * Initiate Pure Counter
-   */
-  new PureCounter();
-
-  /**
-   * Initiate glightbox
-   */
-  const glightbox = GLightbox({
-    selector: '.glightbox'
-  });
-
-  /**
-   * Init isotope layout and filters
-   */
-  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
-    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
-    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
-    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
-
-    let initIsotope;
-    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
-      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
-        itemSelector: '.isotope-item',
-        layoutMode: layout,
-        filter: filter,
-        sortBy: sort
+  // Ensure hero carousel auto-cycles smoothly and supports touch swipe without arrow buttons
+  window.addEventListener('load', () => {
+    const heroCarouselEl = document.querySelector('#hero-carousel');
+    if (heroCarouselEl && typeof bootstrap !== 'undefined' && bootstrap.Carousel) {
+      const heroCarousel = bootstrap.Carousel.getOrCreateInstance(heroCarouselEl, {
+        interval: 5000,
+        ride: 'carousel',
+        wrap: true,
+        touch: true
       });
-    });
-
-    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
-      filters.addEventListener('click', function() {
-        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
-        this.classList.add('filter-active');
-        initIsotope.arrange({
-          filter: this.getAttribute('data-filter')
-        });
-        if (typeof aosInit === 'function') {
-          aosInit();
-        }
-      }, false);
-    });
-
+      heroCarousel.cycle();
+    }
   });
 
   /**
-   * Frequently Asked Questions Toggle
+   * PureCounter init
    */
-  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
-    faqItem.addEventListener('click', () => {
-      faqItem.parentNode.classList.toggle('faq-active');
-    });
-  });
-
-  /**
-   * Init swiper sliders
-   */
-  function initSwiper() {
-    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
-      let config = JSON.parse(
-        swiperElement.querySelector(".swiper-config").innerHTML.trim()
-      );
-
-      if (swiperElement.classList.contains("swiper-tab")) {
-        initSwiperWithCustomPagination(swiperElement, config);
-      } else {
-        new Swiper(swiperElement, config);
-      }
-    });
+  if (typeof PureCounter !== 'undefined') {
+    new PureCounter();
   }
 
-  window.addEventListener("load", initSwiper);
-
   /**
-   * Correct scrolling position upon page load for URLs containing hash links.
+   * Smooth hash scrolling
    */
-  window.addEventListener('load', function(e) {
+  window.addEventListener('load', function() {
     if (window.location.hash) {
-      if (document.querySelector(window.location.hash)) {
+      const section = document.querySelector(window.location.hash);
+      if (section) {
         setTimeout(() => {
-          let section = document.querySelector(window.location.hash);
-          let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
+          const header = document.querySelector('#header');
+          const headerOffset = header ? header.offsetHeight : 60;
+          const elementPosition = section.getBoundingClientRect().top + window.scrollY;
           window.scrollTo({
-            top: section.offsetTop - parseInt(scrollMarginTop),
+            top: elementPosition - headerOffset,
             behavior: 'smooth'
           });
         }, 100);
@@ -209,23 +239,49 @@
   /**
    * Navmenu Scrollspy
    */
-  let navmenulinks = document.querySelectorAll('.navmenu a');
+  const navmenulinks = document.querySelectorAll('.navmenu a');
 
   function navmenuScrollspy() {
     navmenulinks.forEach(navmenulink => {
       if (!navmenulink.hash) return;
-      let section = document.querySelector(navmenulink.hash);
+      const section = document.querySelector(navmenulink.hash);
       if (!section) return;
-      let position = window.scrollY + 200;
+      const position = window.scrollY + 100;
       if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
         document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
         navmenulink.classList.add('active');
       } else {
         navmenulink.classList.remove('active');
       }
-    })
+    });
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
+
+  /**
+   * Contact Form Client-side Handling
+   */
+  document.querySelectorAll('form.php-email-form').forEach(form => {
+    form.addEventListener('submit', function(e) {
+      const loading = form.querySelector('.loading');
+      const errorMsg = form.querySelector('.error-message');
+      const sentMsg = form.querySelector('.sent-message');
+
+      const action = form.getAttribute('action');
+      if (!action || window.location.protocol === 'file:') {
+        e.preventDefault();
+        if (loading) loading.classList.add('d-block');
+        setTimeout(() => {
+          if (loading) loading.classList.remove('d-block');
+          if (errorMsg) errorMsg.classList.remove('d-block');
+          if (sentMsg) {
+            sentMsg.classList.add('d-block');
+            sentMsg.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i>Thank you! Your message has been received. Our team will contact you shortly.';
+          }
+          form.reset();
+        }, 600);
+      }
+    });
+  });
 
 })();
